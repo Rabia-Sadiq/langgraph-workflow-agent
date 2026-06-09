@@ -1,14 +1,13 @@
 import json
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import SystemMessage, HumanMessage
-from src.config import XAI_API_KEY, MODEL_NAME, TEMPERATURE
+from src.config import GEMINI_API_KEY, MODEL_NAME, TEMPERATURE
 from src.state import AgentState
 
-llm = ChatOpenAI(
+llm = ChatGoogleGenerativeAI(
     model=MODEL_NAME,
     temperature=TEMPERATURE,
-    api_key=XAI_API_KEY,
-    base_url="https://api.x.ai/v1",
+    google_api_key=GEMINI_API_KEY,
 )
 
 CLASSIFIER_SYSTEM_PROMPT = """
